@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  div.wrapper
+    div.card-header()
+  div.container
+    - for (let i = 0; i<products.length; i+=3)
+      div.thumbnail
+        - for (let j = i; j< 3+i; j++)
+            div.thumbnail-card
+              div.thumbnail-image
+                img(src= products[j].imagePath)
+                |
+                span = products[j].title
+              |
+              div.thumbnail-content
+                p = product[j].description
+              |
+              div.thumbnail-action
+                div.price.left #{`$${products[j].price}`}
+                div.right
+                  a(href="#") Add to cart
+              
+
