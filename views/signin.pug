@@ -8,15 +8,13 @@ block content
                 h3 #{message}
 
     form(method='post' action='/users/signin')
-        i.fas.fa-twitter
-        i.fas.fa-times-circle
-            div.form-group
-                label Email
-                input#email.form-control(name='email', type='text' required)
-            div.form-group
-                label Password
-                input#password.form-control(name='password', type='password' required)
-            div.form-group
-                input(type="text" name="_csrf" value= csrfToken)
-            br
-            input.btn(type='submit', value='Sign Up')
+        div.form-group
+            label Email
+            input#email.form-control(name='email', type='text' required)
+        div.form-group
+            label Password
+            input#password.form-control(name='password', type='password' required)
+        div.form-group
+            input.form-control(type="hidden" name="_csrf" value= csrfToken)
+        br
+        input.btn(type='submit', value='Sign In')

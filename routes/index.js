@@ -11,16 +11,14 @@ const Cart = require('../models/cart')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    const successMsg = req.flash('success')[0];
     Product.find(function(err, docs) {
-        console.log(docs.length);
-        res.render('index', {
-            title: 'Shopping Cart',
-            products: docs,
-            successMsg: successMsg,
-            noMessages: !successMsg
-        });
-    });
+        const productChunks = [] //to be able to through
+        const chunkSize = 3
+        for (let i = 0; i < docs.length; i += chunkSize) {
+            productChunks.push(docs.slice(i, i + chunkSize))
+        }
+        res.render('index', { title: 'Shopping cart', products: productChunks });
+    })
 
 });
 

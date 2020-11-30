@@ -1,8 +1,8 @@
 nav.navbar
     ul.navbar-left
-        h1 MyComm
+     
         li 
-            a(href="#" class="navbar-link")
+            a(href="/" class="navbar-link") MyComm
     ul.navbar-right
         li 
             a(href="/shopping-cart" class="navbar-link") 
@@ -22,14 +22,4 @@ nav.navbar
                         a(href='/users/signin') Sign In
                     li
                         a(href='/users/signup') Sign Up    
-            ul#dropdown2.dropdown-content
-                if login
-                    li
-                        a(href='/users/profile') User Account
-                    li
-                        a(href='/users/logout') Logout
-                else
-                    li
-                        a(href='/users/signin') Sign In
-                    li
-                        a(href='/users/signup') Sign Up   
+            

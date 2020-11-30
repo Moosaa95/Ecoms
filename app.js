@@ -17,7 +17,7 @@ const usersRouter = require('./routes/users');
 const app = express();
 
 //connect to the data
-mongoose.connect("mongodb://localhost:27017/shopping", { useNewUrlParser: true })
+mongoose.connect("mongodb://localhost:27017/myshop", { useNewUrlParser: true })
     .then(() => console.log("db connected"))
     .catch(err => console.log(err))
 require('./config/passport')
@@ -41,7 +41,9 @@ app.use(session({
         secret: 'mysecret',
         resave: false,
         saveUninitialized: false,
+        //no new connection open on it own
         store: new MongoStore({ mongooseConnection: mongoose.connection }),
+        //time for cookies to expire
         cookie: { maxAge: 180 * 60 * 1000 }
     })) //if true session saved on the server on it request
 app.use(flash())
@@ -52,6 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
     res.locals.login = req.isAuthenticated()
+        //accessing sessions globally
     res.locals.session = req.session
     next()
 })

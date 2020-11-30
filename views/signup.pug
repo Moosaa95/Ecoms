@@ -16,6 +16,6 @@ block content
                 label Password
                 input#password.form-control(name='password', type='password' required)
             div.form-group
-                input(type="text" name="_csrf" value= csrfToken)
+                input(type="hidden" name="_csrf" value= csrfToken)
             br
             input.btn(type='submit', value='Sign Up')

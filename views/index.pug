@@ -4,21 +4,21 @@ block content
   div.wrapper
     div.card-header
   div.container
-    - for (let i = 0; i<products.length; i+=3)
-      div.thumbnail
-        - for (let j = i; j< 3+i; j++)
-            div.thumbnail-card
-              div.thumbnail-image
-                img(src= products[j].imagePath)
-                |
-                span= products[j].title
+    each product in products
+      div.thumbnail-row
+        each prod in product
+          div.thumbnail-card 
+            div.thumbnail-image
+              img(src= prod.imagePath)    
+              span= prod.title
               |
-              div.thumbnail-content
-                p= products[j].description
+            div.thumbnail-content
+              p= prod.description
               |
-              div.thumbnail-action
-                div.price.left #{`$${products[j].price}`}
-                div.right
-                  a(href="/users/add-to-cart/" + products[j]._id) Add to cart
+            div.thumbnail-action
+                
+              div.price.left #{`$${prod.price}`}
+              div.right
+                a(href="/users/add-to-cart/" + prod._id ) Add to cart
               
 

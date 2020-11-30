@@ -14,6 +14,77 @@ ul {
     list-style: none;
 }
 
+img {
+    width: 50%;
+}
+
+.container {
+    border: 1px solid #bfbfbf;
+    display: flex;
+    width: 100%;
+    margin: 2rem auto;
+    border-radius: 12px;
+}
+
+form {
+    width: 400px;
+    height: 70%;
+    box-shadow: 0 15px 35px #000;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+#form-group {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgb(50, 50, 90, .15);
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgb(56, 53, 53);
+}
+
+.btn {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    color: #525f7f;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #3a86ff;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    border-radius: 4px;
+    transition: all .15s ease;
+    box-shadow: 0 4px 6px rgb(50, 50, 90, .15);
+    text-transform: uppercase;
+}
+
+.btn:active {
+    top: 5px;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:hover {
+    background-color: #ececec;
+}
+
 .navbar {
     overflow: hidden;
     background-color: #333;
@@ -42,4 +113,13 @@ ul {
     align-items: center;
     height: 100%;
     margin: 2rem 0;
+}
+
+.small-message h3 {
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    color: red;
+    margin: 0 auto;
+    text-align: center;
 }
