@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    div.container
+        div.row
+            div.col 
+                div.card
+                    div.card-content
+                        h2 Checkout
+                        h5 #{`Total: $${total}`}
+                        div.card-panel(class={hide: noError === true})= errMsg
+                        form(action="/checkout" id="checkout-form" method="post")
+                            div.form-row
+                                .checkout-input
+                                    input#name(placeholder='Name', type='text', name='name', required='')
+                                    label(for='name') Name
+                            div.form-row
+                                .checkout-input
+                                    input#name(placeholder='Address', type='text', name='address', required='')
+                                    label(for='address') Address
+                            div.form-row
+                                .checkout-input
+                                    input#card-name(placeholder='Card Holder Name', type='text', name='card-name', required='')
+                                    label(for='card-name') Card Holder Name
+                            div.form-row
+                                .checkout-input
+                                    input#card-number(placeholder='Credit Card Number', type='text', name='ccn',required='')
+                                    label(for='card-number') Credit Card Number
+                            div.form-row
+                                .checkout-input
+                                    input#card-expiry-month(type='text', name='ccn', required='')
+                                    label(for='card-expiry-month') Expiration Month
+                            div.form-row
+                                .checkout-input
+                                    input#card-expiry-year(type='text', name='ccn', required='')
+                                    label(for='card-expiry-year') Expiration Year
+                            div.form-row
+                                .checkout-input
+                                    input#cvc(type='text', name='ccn', required='')
+                                    label(for='cvc') CVC
+                            button.btn.btn-buy(type="submit") Buy Now

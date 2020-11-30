@@ -2,7 +2,7 @@ extends layout
 
 block content
   div.wrapper
-    div.card-header()
+    div.card-header
   div.container
     - for (let i = 0; i<products.length; i+=3)
       div.thumbnail
@@ -11,14 +11,14 @@ block content
               div.thumbnail-image
                 img(src= products[j].imagePath)
                 |
-                span = products[j].title
+                span= products[j].title
               |
               div.thumbnail-content
-                p = product[j].description
+                p= products[j].description
               |
               div.thumbnail-action
                 div.price.left #{`$${products[j].price}`}
                 div.right
-                  a(href="#") Add to cart
+                  a(href="/users/add-to-cart/" + products[j]._id) Add to cart
               
 

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    div.container
+        div.row
+            div.col
+                div.card-cart
+                    if Object.keys(products).length >= 1
+                        ul
+                            each product in products
+                                div.card-content
+                                    span.badge.right-align= product.qty
+                                    strong= product.item.title 
+                                    ul
+                                        li
+                                            a(href='/reduce/'+ product.item._id) Reduce by 1
+                                            a(href='/remove/'+ product.item._id) Remove all
+                                    a.dropdown-button.btn(type='button', data-activates='cart-option', data-beloworigin='true')
+                                        | Action
+                                        i.fa.fa-chevron-down arrow_drop_down
+                                    p.price #{`$${product.price}`}
+                                div.card-content
+                                    strong #{`Total: $${totalPrice}`}
+                                hr
+                                div.card-content
+                                    a.waves.btn(href='/checkout') CHECKOUT
+                    else
+                        div.card-content
+                            h4 No items in cart
+
